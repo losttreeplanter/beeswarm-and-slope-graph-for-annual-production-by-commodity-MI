@@ -1,0 +1,69 @@
+---
+title: "Production annual MI slopegraph"
+output: html_notebook
+---
+
+Ran MI production filtered lithium. 
+
+
+
+```{r}
+
+library(tidyverse)
+
+
+library(readr)
+rawlithium <- read_csv("C:/Users/Admin/Downloads/lithium annual production for r three 20180720134543.csv")
+glimpse(rawlithium)
+
+
+
+```
+
+
+
+Make table long and group items under year
+
+```{r}
+
+lithiumyear <- rawlithium %>% gather("year", "production",6:15)
+
+
+lithiumyear$year <- as.numeric(lithiumyear$year)
+
+lithiumyear$production<- as.numeric(lithiumyear$production)
+
+glimpse(lithiumyear)
+
+```
+
+
+
+What are the top miners in 2017? 
+
+```{r}
+
+
+top2017 <- lithiumyear  %>% filter(year==2017) %>% na.omit(production) %>% arrange(desc(production))
+top2017
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

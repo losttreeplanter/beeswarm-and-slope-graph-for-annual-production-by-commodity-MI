@@ -1,0 +1,46 @@
+---
+title: "Production annual MI slopegraph"
+output: html_notebook
+---
+
+Ran MI production filtered lithium. 
+
+
+
+```{r}
+
+library(tidyverse)
+
+
+library(readr)
+rawlithium <- read_csv("C:/Users/Admin/Downloads/lithium annual production for r 20180720134543.csv")
+glimpse(rawlithium)
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

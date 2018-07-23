@@ -1,0 +1,72 @@
+---
+title: "Production annual MI slopegraph"
+output: html_notebook
+---
+
+Ran MI production filtered cobalt 
+
+
+
+```{r}
+
+library(tidyverse)
+
+
+library(readr)
+rawcobalt <- read_csv("C:/Users/Admin/Downloads/annual production cobalt july 2017 20180720152028.csv")
+glimpse(rawcobalt)
+
+
+
+```
+
+
+
+Clean data 
+
+```{r}
+
+
+
+
+cobaltyear <- rawcobalt %>% gather("year", "production", 6:99)
+
+
+cobaltyear$year <- as.numeric(cobaltyear$year)
+
+cobaltyear$production<- as.numeric(cobaltyear$production)
+
+glimpse(cobaltyear)
+
+```
+
+
+
+What are the top miners in 2017? 
+
+```{r}
+
+
+top2017 <- lithiumyear  %>% filter(year==2017) %>% na.omit(production) %>% arrange(desc(production))
+top2017
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
